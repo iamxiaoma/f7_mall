@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><%= htmlWebpackPlugin.options.title %></title>
+	<link rel="stylesheet" href="">
+	<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+</head>
+<body>
+<!-- 我是注释信息 -->
+
+	<% for(var k in htmlWebpackPlugin.files.chunks) { %>
+		<% if(k !== 'main'){ %>
+			<script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+		<% } %>
+	<% } %>
+</body>
+</html>
